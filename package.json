@@ -1,0 +1,28 @@
+{
+  "name": "@webvoxel/plugin-webvr",
+  "version": "0.0.1-a3",
+  "description": "WebVR support for WebVoxel projects.",
+  "main": "dist/webvoxel-plugin-webvr.min.js",
+  "module": "src/index.ts",
+  "repository": "https://github.com/WebVoxel/plugin-webvr.git",
+  "author": "Landon Gravat <railinator4903@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "webpack --config webpack.dev.js",
+    "package": "webpack --config webpack.prod.js",
+    "prepublishOnly": "yarn package"
+  },
+  "dependencies": {
+    "@webvoxel/core": "^0.0.1-b3"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
