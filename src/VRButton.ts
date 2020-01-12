@@ -1,11 +1,13 @@
+import * as THREE from 'three';
+
 const VRButton = {
-    createButton: (renderer, options) => {
+    createButton: (renderer: THREE.WebGLRenderer, options?: any): HTMLElement => {
         if (options && options.referenceSpaceType)
             renderer.xr.setReferenceSpaceType(options.referenceSpaceType);
 
-        function showEnterVR(button) {
-            let currentSession = null;
-            function onSessionStarted(session) {
+        function showEnterVR(button: HTMLButtonElement) {
+            let currentSession: any = null;
+            function onSessionStarted(session: any) {
                 session.addEventListener('end', onSessionEnded);
 
                 renderer.xr.setSession(session);
@@ -46,13 +48,13 @@ const VRButton = {
                     // be requested separately.)
 
                     var sessionInit = { optionalFeatures: [ 'local-floor', 'bounded-floor' ] };
-                    navigator.xr.requestSession('immersive-vr', sessionInit).then(onSessionStarted);
+                    (navigator as any).xr.requestSession('immersive-vr', sessionInit).then(onSessionStarted);
 
                 } else currentSession.end();
             };
         }
 
-        function disableButton(button) {
+        function disableButton(button: HTMLButtonElement) {
 
             button.style.display = '';
 
@@ -67,12 +69,12 @@ const VRButton = {
 
         }
 
-        function showWebXRNotFound(button) {
+        function showWebXRNotFound(button: HTMLButtonElement) {
             disableButton(button);
             button.textContent = 'VR NOT SUPPORTED';
         }
 
-        function stylizeElement(element) {
+        function stylizeElement(element: HTMLElement) {
             element.style.position = 'absolute';
             element.style.bottom = '20px';
             element.style.padding = '12px 6px';
@@ -93,7 +95,7 @@ const VRButton = {
 
             stylizeElement(button);
 
-            navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
+            (navigator as any).xr.isSessionSupported('immersive-vr').then((supported: boolean) => {
                 supported ? showEnterVR(button) : showWebXRNotFound(button);
             });
 
@@ -103,7 +105,7 @@ const VRButton = {
             message.href = 'https://immersiveweb.dev/';
 
             if (!window.isSecureContext)
-                message.innerHTML = 'WEBXR NEEDS HTTPS'; // TODO Improve message
+                message.innerHTML = 'WEBXR NEEDS SECURE CONNECTION';
             else message.innerHTML = 'WEBXR NOT AVAILABLE';
 
             message.style.left = 'calc(50% - 90px)';
