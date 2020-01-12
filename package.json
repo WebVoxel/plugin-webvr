@@ -3,7 +3,6 @@
   "version": "0.0.1-a6",
   "description": "WebVR support for WebVoxel projects.",
   "main": "dist/webvoxel-plugin-webvr.min.js",
-  "module": "src/index.ts",
   "repository": "https://github.com/WebVoxel/plugin-webvr.git",
   "author": "Landon Gravat <railinator4903@gmail.com>",
   "license": "MIT",
@@ -20,7 +19,8 @@
     "awesome-typescript-loader": "^5.2.1",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   },
   "publishConfig": {
     "access": "public"

@@ -1,35 +1,7 @@
-const path = require('path');
+const merge = require('webpack-merge');
 
-module.exports = {
+module.exports = merge(require('./webpack.common'), {
     mode: 'development',
     devtool: 'source-map',
-    entry: './src/index.ts',
-    output: {
-        filename: 'webvoxel-plugin-webvr.min.js',
-        path: path.resolve(__dirname, 'dist'),
-        library: 'Voxel',
-        libraryTarget: 'umd',
-        globalObject: 'this',
-    },
-    resolve: {
-        extensions: [".ts", ".js"]
-    },
     watch: true,
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                loader: 'awesome-typescript-loader'
-            }
-        ]
-    },
-    externals: {
-        three: {
-            root: 'THREE',
-            commonjs2: 'three',
-            commonjs: 'three',
-            amd: 'three',
-        },
-    },
-};
+});
