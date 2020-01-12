@@ -1,6 +1,6 @@
 {
   "name": "@webvoxel/plugin-webvr",
-  "version": "0.0.1-a3",
+  "version": "0.0.1-a4",
   "description": "WebVR support for WebVoxel projects.",
   "main": "dist/webvoxel-plugin-webvr.min.js",
   "module": "src/index.ts",
@@ -14,7 +14,7 @@
     "prepublishOnly": "yarn package"
   },
   "dependencies": {
-    "@webvoxel/core": "^0.0.1-b3"
+    "@webvoxel/core": "^0.0.1-b4"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
