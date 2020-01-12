@@ -4,7 +4,7 @@ const buildPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
 
 module.exports = {
-    entry: path.resolve(srcPath, 'index.js'),
+    entry: path.resolve(srcPath, 'index.ts'),
     module: {
         rules: [
             {
@@ -15,7 +15,7 @@ module.exports = {
         ],
     },
     output: {
-        filename: `webvoxel-plugin-webvr`,
+        filename: `webvoxel-plugin-webvr.min.js`,
         path: buildPath,
         library: 'Voxel',
         libraryTarget: 'umd',
